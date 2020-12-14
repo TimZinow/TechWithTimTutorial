@@ -485,34 +485,47 @@
 #Tutorial 19: Global vs local variables (02:20:28)
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 
-#If a variable is declared within a function it is not defined for other functions but can only be accessed within the 
-#function it is declared in
-#If a variable is declared outside of a function or class it is called a global variable
-#Since in python there is no main() function as in C++ usually all variables are defined as global variables unless they are in a function or class
-#This means they wouldn't have to be passed to a function but could be accessed by name within the function body
-#This is bad practice, since the function wouldn't work if copied to another program without the variable declaration
-#All values that are needed within a function should either be passed to the function or calculated from passed values within the function 
-#The value of a global variable can't be changed within a function body
+##If a variable is declared within a function it is not defined for other functions but can only be accessed within the 
+##function it is declared in
+##If a variable is declared outside of a function or class it is called a global variable
+##Since in python there is no main() function as in C++ usually all variables are defined as global variables unless they are in a function or class
+##This means they wouldn't have to be passed to a function but could be accessed by name within the function body
+##This is bad practice, since the function wouldn't work if copied to another program without the variable declaration
+##All values that are needed within a function should either be passed to the function or calculated from passed values within the function 
+##The value of a global variable can't be changed within a function body
 
-a=5
-b=4
+#a=5
+#b=4
 
-def DoSmth(x):
-    #global b        #This enables changing a variable value within a function (b=7 instead of b=4 printed outside of function)
-    print(a)        #This is bad practice, print(x) would be the much better option
-    b=7             #Also bad practice and creates a copy of b that is changed only within the function body
-    x=x+5
-    return x
+#def DoSmth(x):
+#    #global b        #This enables changing a variable value within a function (b=7 instead of b=4 printed outside of function)
+#    print(a)        #This is bad practice, print(x) would be the much better option
+#    b=7             #Also bad practice and creates a copy of b that is changed only within the function body
+#    x=x+5
+#    return x
 
-print(DoSmth(a))
+#print(DoSmth(a))
+#print(b)
+#----------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+#----------------------------------------------------------------------------------------------------------------------------------------------------
+#Tutorial 20: Classes & objects - Tutorial 1 (20:29:16)
+#----------------------------------------------------------------------------------------------------------------------------------------------------
+
+#basically everything you declare in python is an object.
+#Apart from that the classObject.method() syntax is similar as in C++
+
+x=5
+y='   string   '
+
+print(type(x)) #output is <class 'int'> which means that all the variable types in python are classes and the variables objects of the respective class 
+print(type(y)) #output is <class 'str'> 
+
+b=y.strip()    #the .strip() syntax should already tell us that y has to be an object and .strip() is one of the str classes' methods
 print(b)
-#----------------------------------------------------------------------------------------------------------------------------------------------------
+print(y.replace('s', 'S')) #Might prove useful
 
-
-#----------------------------------------------------------------------------------------------------------------------------------------------------
-#Tutorial 20: Classes and objects - Tutorial 1 (20:29:16)
-#----------------------------------------------------------------------------------------------------------------------------------------------------
-
-
+#if help(varType) is typed into the python console the class and all its methods are shown
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------

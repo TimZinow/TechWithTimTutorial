@@ -2,6 +2,32 @@
 ##Complete python tutorial by Tech with Tim
 ##https://www.youtube.com/watch?v=sxTmJE4k0ho
 #----------------------------------------------------------------------------------------------------------------------------------------------------
+#Table of contents:
+#- Tutorial  1: Variables and Data types
+#- Tutorial  2: Basic Operators and inputs
+#- Tutorial  3: Conditions
+#- Tutorial  4: if/elif/else
+#- Tutorial  5: Chained conditionals (and, or, not) & nested statements
+#- Tutorial  6: For loops
+#- Tutorial  7: While loops
+#- Tutorial  8: Lists and tuples
+#- Tutorial  9: Iteration by item
+#- Tutorial 10: String methods
+#- Tutorial 11: Slice operator
+#- Tutorial 12: Functions
+#- Tutorial 13: How to read a text file line by line
+#- Tutorial 14: Writing to a text file
+#- Tutorial 15: Using .count() and .find()
+#- Tutorial 16: Introduction to modular programming (import (and write own) modules)
+#- Tutorial 17: Optional parameters
+#- Tutorial 18: Try and Except (error handling)
+#- Tutorial 19: Global vs local variables
+#- Tutorial 20: Classes & objects - Tutorial 1: What are classes?
+#- Tutorial 21: Classes & objects - Tutorial 2: How can they be created?
+#- Tutorial 22: Classes & objects - Tutorial 3: What is inheritance/how is it used?
+#- Tutorial 23: Classes & objects - Tutorial 4: Overloading default python methods
+#- Tutorial 24: 
+
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 #Tutorial 1: Variables and data types
@@ -510,22 +536,109 @@
 
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------
-#Tutorial 20: Classes & objects - Tutorial 1 (20:29:16)
+#Tutorial 20: Classes & objects - Tutorial 1 - What is it? (02:29:16)
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 
-#basically everything you declare in python is an object.
-#Apart from that the classObject.method() syntax is similar as in C++
+##basically everything you declare in python is an object.
+##Apart from that the classObject.method() syntax is similar as in C++
 
-x=5
-y='   string   '
+#x=5
+#y='   string   '
 
-print(type(x)) #output is <class 'int'> which means that all the variable types in python are classes and the variables objects of the respective class 
-print(type(y)) #output is <class 'str'> 
+#print(type(x)) #output is <class 'int'> which means that all the variable types in python are classes and the variables objects of the respective class 
+#print(type(y)) #output is <class 'str'> 
 
-b=y.strip()    #the .strip() syntax should already tell us that y has to be an object and .strip() is one of the str classes' methods
-print(b)
-print(y.replace('s', 'S')) #Might prove useful
+#b=y.strip()    #the .strip() syntax should already tell us that y has to be an object and .strip() is one of the str classes' methods
+#print(b)
+#print(y.replace('s', 'S')) #Might prove useful
 
-#if help(varType) is typed into the python console the class and all its methods are shown
+##if help(varType) shows the class and all its methods
+
+#help(int)
+
+#----------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+#----------------------------------------------------------------------------------------------------------------------------------------------------
+#Tutorial 21: Classes & objects - Tutorial 2 - How can it be created? (02:39:00)
+#----------------------------------------------------------------------------------------------------------------------------------------------------
+
+#class Dog(object):                       #object keyword can also be left out, but doesn't hurt to use it, (means that class Dog inherits from class object)
+#    def __init__(self):                  #This is the default constructor of the class, It is called automatically each time a Dog object is created
+#        pass                             #pass is like leaving a function body blank
+#    def speak(self):
+#        #print(str(self)+'\n')           #gives the Ram address, but unfortunately not the name of the instance 
+#        print('Arf, arf! Woof!\n') 
+
+#class Tree(object):
+#    def __init__(self, name):
+#        self.name=name                   #In this class there is a member variable name that is initialized by the constructor
+#    def sway(self):
+#        print(self.name+': \nThe ', self.name ,' gently sways in the wind. The sun shines warmly. Birds chirp.\n')
+#    def Add_col(self,colour):            #If a variable (attribute) is added it has to be done with a method. As long as it hasn't been added, 
+#        self.colour=colour               #it obviously can't be called (error if tried)
+#        print('The ',self.name,'\'s leaves are',self.colour, 'and rustle softly in the breeze.\n')
+
+#Sissi=Dog()                              #This is the python way to create a class object/instance of class dog
+#Sissi.speak()                            #Function method is called with . operator like in C++
+
+#Willow=Tree('Willow')                    #When creating the object the name is given to the constructor as an argument                       
+#Willow.sway()
+#Willow.Add_col('bright green')
+
+#----------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+#----------------------------------------------------------------------------------------------------------------------------------------------------
+#Tutorial 22: Classes & objects - Tutorial 3 - What is inheritance? (02:50:37)
+#----------------------------------------------------------------------------------------------------------------------------------------------------
+
+#If for a project an number of similar class objects are to be used it is sensible to write a quite general parent class with the 
+#attributes and methods that all objects should have in common and then save work with typing by creating child classes 
+#that inherit all variables and methods of the parent class.
+#Then variables and methods can be added or modified to fit the respective child class's requirements
+#Inheritance can also be used over several steps (e.g. livingThing, animal, mammal, rodent, mouse)
+
+class Dog(object):
+    def __init__(self, name, age):
+        self.name=name
+        self.age=age
+    def speak(self):
+        print("Hi I am", self.name, "and I am", self.age, "years old. \n")
+    def talk(self):
+        print("Bark! \n")
+
+
+#class Cat(object):                                         #Copying code from another class (Dog) and adding one variable is bad practice/a lot of work
+#    def __init__(self, name, age, colour):                 #Instead inheritance can be used as shown below
+#        self.name=name
+#        self.age=age
+#        self.colour=colour
+#    def speak(self):
+#        print("Hi I am", self.name, "and I am", self.age, "years old. \n")
+
+class Cat(Dog):                                             #This initializes a new class Cat with Dog as parent class
+    def __init__(self, name, age, colour):                  #This is the constructor of Cat with the new variable colour
+        super().__init__(name, age)                         #Here the constructor body of the super class (parent, Dog) is called
+        self.colour=colour                                  #Here the new variable colour is assigned within the constructor body
+    def talk(self):                                         #The definition of a function of the parent class can be overwritten
+        print("Meow! \n")
+
+Sissi=Dog("Sissi",6)
+Sissi.speak()
+Sissi.talk()
+
+Amar=Cat("Amar", 12, "Black")                               
+Amar.speak()                                                #Since Dog had the member function speak, Cat has inherited it and can use it
+Amar.talk()                                                 #Since the member function talk of Dog was overwritten, the output is different
+
+#----------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+#----------------------------------------------------------------------------------------------------------------------------------------------------
+#Tutorial 23: Classes & objects - Tutorial 4 - Overloading default python methods (03:03:14)
+#----------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------

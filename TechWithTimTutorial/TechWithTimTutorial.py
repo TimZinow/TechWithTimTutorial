@@ -25,8 +25,6 @@
 #- Tutorial 20: Classes & objects - Tutorial 1: What are classes?
 #- Tutorial 21: Classes & objects - Tutorial 2: How can they be created?
 #- Tutorial 22: Classes & objects - Tutorial 3: What is inheritance/how is it used?
-#- Tutorial 23: Classes & objects - Tutorial 4: Overloading default python methods
-#- Tutorial 24: 
 
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------
@@ -593,52 +591,43 @@
 #Tutorial 22: Classes & objects - Tutorial 3 - What is inheritance? (02:50:37)
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 
-#If for a project an number of similar class objects are to be used it is sensible to write a quite general parent class with the 
-#attributes and methods that all objects should have in common and then save work with typing by creating child classes 
-#that inherit all variables and methods of the parent class.
-#Then variables and methods can be added or modified to fit the respective child class's requirements
-#Inheritance can also be used over several steps (e.g. livingThing, animal, mammal, rodent, mouse)
+##If for a project an number of similar class objects are to be used it is sensible to write a quite general parent class with the 
+##attributes and methods that all objects should have in common and then save work with typing by creating child classes 
+##that inherit all variables and methods of the parent class.
+##Then variables and methods can be added or modified to fit the respective child class's requirements
+##Inheritance can also be used over several steps (e.g. livingThing, animal, mammal, rodent, mouse)
 
-class Dog(object):
-    def __init__(self, name, age):
-        self.name=name
-        self.age=age
-    def speak(self):
-        print("Hi I am", self.name, "and I am", self.age, "years old. \n")
-    def talk(self):
-        print("Bark! \n")
-
-
-#class Cat(object):                                         #Copying code from another class (Dog) and adding one variable is bad practice/a lot of work
-#    def __init__(self, name, age, colour):                 #Instead inheritance can be used as shown below
+#class Dog(object):
+#    def __init__(self, name, age):
 #        self.name=name
 #        self.age=age
-#        self.colour=colour
 #    def speak(self):
 #        print("Hi I am", self.name, "and I am", self.age, "years old. \n")
-
-class Cat(Dog):                                             #This initializes a new class Cat with Dog as parent class
-    def __init__(self, name, age, colour):                  #This is the constructor of Cat with the new variable colour
-        super().__init__(name, age)                         #Here the constructor body of the super class (parent, Dog) is called
-        self.colour=colour                                  #Here the new variable colour is assigned within the constructor body
-    def talk(self):                                         #The definition of a function of the parent class can be overwritten
-        print("Meow! \n")
-
-Sissi=Dog("Sissi",6)
-Sissi.speak()
-Sissi.talk()
-
-Amar=Cat("Amar", 12, "Black")                               
-Amar.speak()                                                #Since Dog had the member function speak, Cat has inherited it and can use it
-Amar.talk()                                                 #Since the member function talk of Dog was overwritten, the output is different
-
-#----------------------------------------------------------------------------------------------------------------------------------------------------
+#    def talk(self):
+#        print("Bark! \n")
 
 
-#----------------------------------------------------------------------------------------------------------------------------------------------------
-#Tutorial 23: Classes & objects - Tutorial 4 - Overloading default python methods (03:03:14)
-#----------------------------------------------------------------------------------------------------------------------------------------------------
+##class Cat(object):                                         #Copying code from another class (Dog) and adding one variable is bad practice/a lot of work
+##    def __init__(self, name, age, colour):                 #Instead inheritance can be used as shown below
+##        self.name=name
+##        self.age=age
+##        self.colour=colour
+##    def speak(self):
+##        print("Hi I am", self.name, "and I am", self.age, "years old. \n")
 
+#class Cat(Dog):                                             #This initializes a new class Cat with Dog as parent class
+#    def __init__(self, name, age, colour):                  #This is the constructor of Cat with the new variable colour
+#        super().__init__(name, age)                         #Here the constructor body of the super class (parent, Dog) is called
+#        self.colour=colour                                  #Here the new variable colour is assigned within the constructor body
+#    def talk(self):                                         #The definition of a function of the parent class can be overwritten
+#        print("Meow! \n")
 
+#Sissi=Dog("Sissi",6)
+#Sissi.speak()
+#Sissi.talk()
+
+#Amar=Cat("Amar", 12, "Black")                               
+#Amar.speak()                                                #Since Dog had the member function speak, Cat has inherited it and can use it
+#Amar.talk()                                                 #Since the member function talk of Dog was overwritten, the output is different
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------

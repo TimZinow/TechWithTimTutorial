@@ -29,6 +29,7 @@
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 #Tutorial 1: Variables and data types
+# (Basics of a python program are explained with small example)
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 
 ##To comment a line a # symbol is placed in front of it
@@ -51,6 +52,7 @@
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 #Tutorial 2: Basic Operators and inputs
+# (Input and output operators are introduced)
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 
 ##input and output
@@ -89,9 +91,10 @@
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 #Tutorial 3: Conditions
+# (The conditional operators are listed)
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 
-##Conditional operators: <, >, ==, !=, same as in c++ - one = is the assignment operator
+##Conditional operators: <, >, ==, !=, same as in c++, one = is the assignment operator
 ##Strings can be compared as well
 #print('Tim'!='Joe')                      #returns True
 
@@ -100,12 +103,13 @@
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 #Tutorial 4: if/elif/else  &  Tutorial 5 - Part 1: Chained conditionals (and,or,not)
+# (The conditional operators used e.g. in loops are introduced as well as ways to chain or negate them)
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 
 #a=5
 #b=4.5
 
-#if a==b:                                             #if condition, no brackets needed, body is indented, no curly braces
+#if a==b:                                             #if condition, no brackets needed, body is indented, no curly braces as in c++
 #    print('Hurray!')
 #elif not(a==b):
 #    print('Yey!')
@@ -116,10 +120,12 @@
 
 #age=int(input('Your age: '))                               #If an argument is passed it is displayed, conversion from string to int can already be done
 
-#if age>=14 and age<16:                                     #Initial if condition, in python 'and' is used, not &&
-#    print('Hey, you can give consent to have sex')
-#elif age==16 or age==17:                                   #If first if condition is not met, this one is checked, 'or' is used instead of ||
-#    print('Hey, you\'re allowed to have a beer')           #\' can be used in strings to display an apostrophe without ending the string
+#if age<14:                                                 #Initial if condition
+#    print('Hey there, kiddo. Let\'s play with lego.')      #\' can be used in strings to display an apostrophe without ending the string
+#elif age>=14 and age<16:                                   #If first if condition is not met, this one is checked, in python 'and' is used, not &&
+#    print('Hey, you can legally do a paper round')
+#elif age==16 or age==17:                                   #'or' is used instead of ||
+#    print('Hey, you\'re allowed to have a beer')           
 #elif age>=18 and age<21:                                   #Several different conditions can be checked with this command
 #    print("Hey, you're allowed to have strong booze")      #Another option is to use "" for the string and use the apostrophe as usual
 #else:                                                      #If no previous condition was True this command is executed 
@@ -132,6 +138,7 @@
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 #Tutorial 5 - Part 2: Nested statements
+# (Nesting is introduced as and alternative to elif and as a way to make code more intuitive to read)
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 
 #a=5
@@ -155,6 +162,7 @@
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 #Tutorial 6: For loops
+# (for loops are introduced as a way to loop over a known range of numbers)
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 
 #for x in range(0,10,1): #start, end+1, step;  step=1 is default if left out --> for x in range(0,10): also works
@@ -165,6 +173,7 @@
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 #Tutorial 7: While loops
+# (While loops are introduced as a way to loop over an unknown range of numbers as long as a condition is met)
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 
 ##syntax:
@@ -203,6 +212,7 @@
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 #Tutorial 8: List's and tuples (01:05:53)
+# (Lists are introduced as a way to store variables of different types in one container)
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 
 ##Lists in python can contain a certain number of items of different types
@@ -210,7 +220,7 @@
 ##len(listName) gives the number of items of a list, also works for len(stringName)
 ##if an item is to be added to the end of the list the listname.append(item) method can be used
 ##if an item is to be changed it's easily done by using listName[itemIndice]=newValue
-##a tuple is quite similar to a list but created with round brackets instead of square brackets, it's used for colours or coordinates, more later
+##a tuple is quite similar to a list but created with round brackets instead of square brackets, it's used for colours or coordinates
 
 #fruits=['apple',1,'apricot',5,'banana',1,'cherry',10,'pear',1,'pineapple',0.5,'plum',5] 
 #print('A good fruit salad contains:\n')
@@ -248,6 +258,7 @@
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 #Tutorial 9: Iteration by item (01:14:15)
+# (Iteration by item is introduced as an alternative to iteration over a certain known range)
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 
 ##Instead of using the range() command (iteration by index) it is also possible to iterate through a list by item without this command
@@ -269,6 +280,7 @@
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 #Tutorial 10: String methods (01:20:13)
+# (Different methods to work with strings are introduced, .strip(), .lower(), .upper(), .split())
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## .strip(), len(), .lower(), .upper(), .split; len() has already been covered, returns length of string or number of items of list used as input
@@ -284,6 +296,7 @@
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 #Tutorial 11: Slice operator (01:26:38)
+# (The slice operator is introduced as an easy way to extract part of a string into a new one)
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 
 #As items within a list can be accessed items in strings (in this case the character at that position) can be accessed as well
@@ -309,6 +322,7 @@
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 #Tutorial 12: Functions (01:33:40)
+# (Functions are introduced as a way to break down tasks into smaller tasks and make them reusable)
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 
 ##Functions are usually defined at the beginning of the code file before they are used or in a separate file that is loaded
@@ -320,7 +334,7 @@
 
 ##A function doesn't have to have parameters. E.g. 
 #def printSmth():
-#   print('That\'s what I always want to print')
+#   print('That\'s what I always wanted to print')
 #printSmth()
 ##would also work
 
@@ -346,13 +360,14 @@
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 #Tutorial 13: How to read a text file line by line (01:42:09)
+# (A way to read data from a file is introduced which can be very useful e.g. to evaluate data from measurements)
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 
 #file=open('fruits.txt','r')            #file is opened with a permission to read, w for write, if second argument is forgotten file is cleared!!!
 #f=file.readlines()                     #reads file line by line into a list
 #print(f[3])
 
-##one way to get rid of the commas at and line breaks at the end of each line
+##one way to get rid of the commas and the line breaks at the end of each line
 #newList=[]
 #for line in f:
 #    if line[-1]=='\n':                 #line[-1] means last character of string line
@@ -374,6 +389,7 @@
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 #Tutorial 14: Writing to a text file (01:50:30)
+# (A way to write data to a file is introduced which can be useful e.g. to break up processes into several steps or to store results/test logs)
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 
 ##uses newList2 from previous tutorial
@@ -388,6 +404,7 @@
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 #Tutorial 15: Using .count() and .find() (01:54:48)
+# (The .count() and .find() string methods to count or find certain characters within a string are introduced )
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 
 ##.count() and .find() can be used on strings
@@ -397,7 +414,7 @@
 ##To find the index of the fourth occurence of the character stringName.find('character',4) can be used
 
 #String='Hello there. My name is Tim.'
-#print('First H: '+str(String.find('H'))+'\n')                  #Keep in mind that the + method can only be used to concatenate strings. int don't work
+#print('First H: '+str(String.find('H'))+'\n')                  #Keep in mind that the + method can only be used to concatenate strings. ints don't work
 #print('First h: '+str(String.find('h'))+'\n')
 #print('Second e: '+str(String.find('e',2))+'\n')
 #LIST=['apple','orange','pear','pineapple','apple']
@@ -415,6 +432,7 @@
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 #Tutorial 16: Introduction to modular programming (02:01:46)
+# (Programming with modules is introduced as a method to use modules of others or create and reuse own modules)
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 
 #In python modules with functions and classes can be imported
@@ -456,6 +474,7 @@
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 #Tutorial 17: Optional parameters (02:09:43)
+# (optional parameters in functions are introduced as a way to set a default if no other option is given)
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 
 #import math
@@ -483,6 +502,7 @@
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 #Tutorial 18: Try and except (Error handling) (02:15:36)
+# (The try and except keywords are introduced as a method to handle errors without crashing the program)
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 
 #If for instance an user input is requested and if of wrong type crashed the program the try and except method can be used
@@ -507,6 +527,7 @@
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 #Tutorial 19: Global vs local variables (02:20:28)
+# (The difference between defining a variable locally and defining it globally is explained)
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 
 ##If a variable is declared within a function it is not defined for other functions but can only be accessed within the 
@@ -535,6 +556,7 @@
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 #Tutorial 20: Classes & objects - Tutorial 1 - What is it? (02:29:16)
+# (Basic definition of what is an object in python and ways to access information about objects)
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 
 ##basically everything you declare in python is an object.
@@ -559,6 +581,7 @@
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 #Tutorial 21: Classes & objects - Tutorial 2 - How can it be created? (02:39:00)
+# (How can classes by created in python)
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 
 #class Dog(object):                       #object keyword can also be left out, but doesn't hurt to use it, (means that class Dog inherits from class object)
@@ -589,6 +612,7 @@
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 #Tutorial 22: Classes & objects - Tutorial 3 - What is inheritance? (02:50:37)
+# (Inheritance is introduced as a way to base classes on other classes)
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 
 ##If for a project an number of similar class objects are to be used it is sensible to write a quite general parent class with the 
